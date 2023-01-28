@@ -1,11 +1,23 @@
 function createApp () {
     let recorder = createRecorder()
 
+    function getStream () {
+        return Promise.all([
+            navigator.mediaDevices.getDisplayMedia({
+                video: true
+            }),
+            navigator.mediaDevices.getUserMedia({
+                audio: true
+            })]
+        ).then(streams => 
+            new MediaStream(streams.reduce((previous, current) => 
+                [...previous, ...current.getTracks()],
+                []
+            ))
+        )
+    }
     function startRecording() {
-        navigator.mediaDevices.getDisplayMedia({
-            audio: true,
-            video: true
-        })
+        getStream()
             .then(recorder.start)
             .then(() => toggleStartButton({ disabled: true }))
             .then(() => toggleStopButton({ disabled: false }))
