@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Screen capturer</title>
+</head>
+<body>
+  <button id="start" onclick="startRecording()">Start recording</button>
+  <button id="stop" onclick="stopRecording()">Stop recording</button>
+  <script src="./js/ui.js"></script>
+  <script src="./js/recorder.js"></script>
+  <script src="./js/app.js"></script>
+  <script>
+    const { startRecording, stopRecording } = createApp()
+  </script>
+</body>
+</html>
