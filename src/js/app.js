@@ -1,7 +1,11 @@
 function createApp () {
     let recorder = createRecorder()
-
+    let recordingObjectUrl
     function handleStop (url) {
+        if (recordingObjectUrl) {
+            window.URL.revokeObjectURL(recordingObjectUrl)
+        }
+        recordingObjectUrl = url
         showRecording(url)
         toggleStartButton({ disabled: false })
         toggleStopButton({ disabled: true })
