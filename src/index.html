@@ -6,11 +6,14 @@
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <div id="buttons">
-    <button id="start" onclick="startRecording()">Start recording</button>
-    <button id="stop" onclick="stopRecording()">Stop recording</button>
+  <div id="content">
+    <h1>Screen capturer</h1>
+    <div id="buttons">
+      <button id="start" onclick="startRecording()">Start recording</button>
+      <button id="stop" onclick="stopRecording()">Stop recording</button>
+    </div>
+    <div id="video-container"></div>
   </div>
-  <div id="video-container"></div>
 
   <script src="./js/ui.js"></script>
   <script src="./js/recorder.js"></script>
