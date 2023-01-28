@@ -3,6 +3,7 @@
     margin-right: auto;
     display: table;
     max-width: 1000px;
+    text-align: center;
 }
 
 #video-container > video {
