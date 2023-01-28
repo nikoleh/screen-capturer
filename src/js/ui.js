@@ -10,5 +10,5 @@ function showRecording (url) {
     const videoElement = document.createElement('video')
     videoElement.src = url
     videoElement.controls = true
-    document.getElementById('video-container').append(videoElement)
+    document.getElementById('video-container').replaceChildren(videoElement)
 }
