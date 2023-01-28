@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Screen capturer</title>
+  <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <button id="start" onclick="startRecording()">Start recording</button>
-  <button id="stop" onclick="stopRecording()">Stop recording</button>
+  <div id="buttons">
+    <button id="start" onclick="startRecording()">Start recording</button>
+    <button id="stop" onclick="stopRecording()">Stop recording</button>
+  </div>
+  <div id="video-container"></div>
+
   <script src="./js/ui.js"></script>
   <script src="./js/recorder.js"></script>
   <script src="./js/app.js"></script>

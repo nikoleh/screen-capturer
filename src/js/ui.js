@@ -9,5 +9,5 @@ function toggleStopButton (options) {
 function showRecording (url) {
     const videoElement = document.createElement('video')
     videoElement.src = url
-    document.body.append(videoElement)
+    document.getElementById('video-container').append(videoElement)
 }

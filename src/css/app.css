@@ -1,0 +1,9 @@
+#video-container {
+    height: 30%;
+    width: 30%;
+}
+
+#video-container > video {
+    width: 100%;
+    max-height: 100%;
+}
