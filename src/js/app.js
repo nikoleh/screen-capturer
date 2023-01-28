@@ -9,6 +9,7 @@ function createApp () {
         showRecording(url)
         toggleStartButton({ disabled: false })
         toggleStopButton({ disabled: true })
+        toggleDownloadButton({ disabled: false })
     }
 
     function handleStart () {
@@ -31,6 +32,16 @@ function createApp () {
             ))
         )
     }
+
+    function download() {
+        let link = document.createElement('a')
+        link.hidden = true
+        link.href = recordingObjectUrl
+        link.download = 'screen_capture.mp4'
+        link.click()
+        link.remove()
+    }
+
     function startRecording() {
         getStream()
             .then(stream => recorder
@@ -47,6 +58,7 @@ function createApp () {
 
     return {
         startRecording,
-        stopRecording
+        stopRecording,
+        download
     }
 }

@@ -6,6 +6,10 @@ function toggleStopButton (options) {
     document.getElementById('stop').disabled = options.disabled
 }
 
+function toggleDownloadButton (options) {
+    document.getElementById('download').disabled = options.disabled
+}
+
 function showRecording (url) {
     const videoElement = document.createElement('video')
     videoElement.src = url
