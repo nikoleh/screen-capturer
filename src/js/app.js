@@ -1,6 +1,17 @@
 function createApp () {
     let recorder = createRecorder()
 
+    function handleStop (url) {
+        showRecording(url)
+        toggleStartButton({ disabled: false })
+        toggleStopButton({ disabled: true })
+    }
+
+    function handleStart () {
+        toggleStartButton({ disabled: true })
+        toggleStopButton({ disabled: false })
+    }
+
     function getStream () {
         return Promise.all([
             navigator.mediaDevices.getDisplayMedia({
@@ -18,16 +29,16 @@ function createApp () {
     }
     function startRecording() {
         getStream()
-            .then(recorder.start)
-            .then(() => toggleStartButton({ disabled: true }))
-            .then(() => toggleStopButton({ disabled: false }))
+            .then(stream => recorder
+                .start(
+                    stream,
+                    { onTerminateStream: ({ url }) => handleStop(url) }
+                )
+            ).then(handleStart)
     }
 
     function stopRecording() {
-        recorder.stop()
-            .then(({ url }) => showRecording(url))
-            .then(() => toggleStartButton({ disabled: false }))
-            .then(() => toggleStopButton({ disabled: true }))
+        recorder.stop().then(({ url }) => handleStop(url))
     }
 
     return {
